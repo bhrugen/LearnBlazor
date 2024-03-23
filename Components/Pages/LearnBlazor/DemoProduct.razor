@@ -3,29 +3,29 @@
 <h2 class="text-primary">DemoProduct</h2>
 <div class=" p-2 mt-2">
     <div class="row">
-        @foreach(var prod in ProductList)
+        @foreach (var prod in ProductList)
         {
             <div class="bg-light border col-6">
                 <h4 class="text-secondary">Product - @prod.Id</h4>
                 Name - @prod.Name <br />
-                Show Properties : 
+                Show Properties :
                 <input type="checkbox" @bind="prod.IsActive" />
-                 
+
                 @if (prod.IsActive)
                 {
-                    @foreach(var prodProp in prod.ProductProperties)
+                    @foreach (var prodProp in prod.ProductProperties)
                     {
                         <p>@prodProp.Key - @prodProp.Value</p>
                     }
                 }
-                <br/>
+                <br />
                 <input type="button" class="btn btn-danger" style="width:100px" value="Delete" />
             </div>
         }
     </div>
     <div class="row pt-4">
         <input type="button" class="btn btn-success" style="width:100px" value="Counter"
-        @onclick="IncrementCount" />
+               @onclick="()=>IncrementCount(5)" />
         Count : @Count
     </div>
 </div>
@@ -67,8 +67,8 @@
             });
     }
 
-    private void IncrementCount()
+    private void IncrementCount(int counter)
     {
-        Count++;
+        Count += counter;
     }
 }
