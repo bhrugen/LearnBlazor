@@ -19,7 +19,8 @@
                     }
                 }
                 <br />
-                <input type="button" class="btn btn-danger" style="width:100px" value="Delete" />
+                <input type="button" class="btn btn-danger" style="width:100px" value="Delete"
+                       @onclick="()=>RemoveProduct(prod.Id)" />
             </div>
         }
     </div>
@@ -70,5 +71,14 @@
     private void IncrementCount(int counter)
     {
         Count += counter;
+    }
+
+    private void RemoveProduct(int productId)
+    {
+        var prod = ProductList.FirstOrDefault(u => u.Id == productId);
+        if(prod!=null)
+        {
+            ProductList.Remove(prod);
+        }
     }
 }
