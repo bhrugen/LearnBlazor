@@ -34,6 +34,28 @@
         }
 
     </div>
+    <div class="col-12 p-4">
+        <h2 class="text-success">Product Table</h2>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <td>Product Name</td>
+                    <td>Price</td>
+                    <td>Is Active </td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach(var prod in ProductList)
+                {
+                    <tr>
+                        <td><input type="text" @bind="prod.Name" @bind:event="oninput" /></td>
+                        <td><input type="text" @bind="prod.Price" @bind:event="oninput" /></td>
+                        <td><input type="checkbox" @bind="prod.IsActive" /></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
 </div>
 
 
