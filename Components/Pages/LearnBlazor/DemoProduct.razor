@@ -7,10 +7,10 @@
         {
             <div class="bg-light border col-6">
                 <h4 class="text-secondary">Product - @prod.Id</h4>
-                Name - @prod.Name
+                Name - @prod.Name <br />
                 Show Properties : 
                 <input type="checkbox" @bind="prod.IsActive" />
-
+                 
                 @if (prod.IsActive)
                 {
                     @foreach(var prodProp in prod.ProductProperties)
