@@ -1,5 +1,6 @@
-﻿<input type="button" class="btn btn-danger" style="width:100px" value="Delete" />
+﻿<input type="button" class="btn btn-danger" style="width:100px" value="Delete - @ProductId" />
 
 @code {
-
+    [Parameter]
+    public int ProductId { get; set; }
 }
