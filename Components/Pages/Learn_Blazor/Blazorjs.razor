@@ -33,11 +33,13 @@
 
     private async Task ToastrSuccess()
     {
-        await _JSRuntime.InvokeVoidAsync("showToastr", "success", "Success Notification");
+        //await _JSRuntime.InvokeVoidAsync("showToastr", "success", "Success Notification");
+        await _JSRuntime.ToastrSuccess("Success Notification");
     }
 
     private async Task ToastrError()
     {
-        await _JSRuntime.InvokeVoidAsync("showToastr", "error", "Error Notification");
+        // await _JSRuntime.InvokeVoidAsync("showToastr", "error", "Error Notification");
+        await _JSRuntime.ToastrError("Error Notification");
     }
 }
