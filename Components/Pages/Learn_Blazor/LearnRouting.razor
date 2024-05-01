@@ -1,6 +1,6 @@
 ﻿@page "/learnrouting"
-@page "/learnrouting/{Param1}/{Param2}"
-@page "/learnrouting/{Param1}"
+@* @page "/learnrouting/{Param1}/{Param2}"
+@page "/learnrouting/{Param1}" *@
 @page "/learnBlazor/learnrouting"
 @page "/learnrouting/learnBlazor"
 @page "/learnrouting/catch-all/{*PageParameters}"
@@ -28,9 +28,9 @@
 
 
 @code {
-    [Parameter]
+    [SupplyParameterFromQuery(Name ="Param1")]
     public string Param1 { get; set; }
-    [Parameter]
+    [SupplyParameterFromQuery]
     public string Param2 { get; set; } = "";
     [Parameter]
     public string PageParameters { get; set; } = "";
