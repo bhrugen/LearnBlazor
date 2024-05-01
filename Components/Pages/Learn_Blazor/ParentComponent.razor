@@ -3,7 +3,12 @@
 <h3>ParentComponent</h3>
 
 <_ChildComponent OnButtonClick="ShowMessage" Title="This title is passed as a parameter from Parent Component">
-    Some Text between the Tags from Parent Component!!
+    <ChildSomeContent>Some Text between the Tags from Parent Component!!</ChildSomeContent>
+    <ChildContent>
+        <p>Some Text inside the ChildContent from Parent Component!!</p>
+        <br/>
+        <p class="text-primary">Some Other Text</p>
+    </ChildContent>
 </_ChildComponent>
 
 <p>@messageText</p>
