@@ -1,8 +1,12 @@
 ﻿@page "/learnrouting"
+@page "/learnrouting/{Param1}"
 @page "/learnBlazor/learnrouting"
 
 <h3>LearnRouting</h3>
 
-@code {
+<p>Param1: @Param1</p>
 
+@code {
+    [Parameter]
+    public string Param1 { get; set; } = "";
 }
