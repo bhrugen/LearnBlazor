@@ -4,7 +4,7 @@
 
 <CascadingValue Value="@MessageForGrandChildTemp" Name="Message">
     <CascadingValue Value="@LuckyNumber" Name="LuckyNumber">
-        <_ChildComponent OnButtonClick="ShowMessage" 
+        <_ChildComponent @ref="childComp" OnButtonClick="ShowMessage" 
             Title="This title is passed as a parameter from Parent Component">
             <ChildSomeContent>Some Text between the Tags from Parent Component!!</ChildSomeContent>
             <ChildContent>
@@ -17,9 +17,12 @@
 </CascadingValue>
 <p>@messageText</p>
 
+<div class="row">
+    <button class="btn btn-success" @onclick="()=>childComp.ToastrSuccess()" >Show Toastr</button>
+</div>
 
 @code {
-
+    private _ChildComponent childComp;
     private string MessageForGrandChildTemp="This message is passed from Parent Component to Grand Child";
     private string LuckyNumber = "7";
     public string messageText = "";
