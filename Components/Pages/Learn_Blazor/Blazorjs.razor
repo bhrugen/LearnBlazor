@@ -47,4 +47,16 @@
         // await _JSRuntime.InvokeVoidAsync("showToastr", "error", "Error Notification");
         await _JSRuntime.ToastrError("Error Notification");
     }
+
+     private async Task SweetalertSuccess()
+    {
+        await _JSRuntime.InvokeVoidAsync("ShowSwal", "success", "Task Completed");
+       
+    }
+
+     private async Task SweetalertError()
+    {
+        await _JSRuntime.InvokeVoidAsync("ShowSwal", "error", "Task Failed");
+        
+    }
 }
