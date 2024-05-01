@@ -16,7 +16,7 @@
     }
     <button class="btn btn-danger" @onclick="OnButtonClick">Click Me</button>
 
-    <_GrandChildComponent MessageForGrandChild="@MessageForGrandChild">
+    <_GrandChildComponent>
 
     </_GrandChildComponent>
 </div>
@@ -32,6 +32,5 @@
     [Parameter]
     public EventCallback OnButtonClick { get; set; }
 
-    [Parameter]
-    public string MessageForGrandChild { get; set; }
+    
 }

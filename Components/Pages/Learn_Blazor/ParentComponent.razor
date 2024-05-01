@@ -2,9 +2,9 @@
 
 <h3>ParentComponent</h3>
 
+<CascadingValue Value="@MessageForGrandChildTemp">
 <_ChildComponent OnButtonClick="ShowMessage" 
-    Title="This title is passed as a parameter from Parent Component"
-    MessageForGrandChild="This message is passed from Parent Component to Grand Child">
+    Title="This title is passed as a parameter from Parent Component">
     <ChildSomeContent>Some Text between the Tags from Parent Component!!</ChildSomeContent>
     <ChildContent>
         <p>Some Text inside the ChildContent from Parent Component!!</p>
@@ -12,11 +12,13 @@
         <p class="text-primary">Some Other Text</p>
     </ChildContent>
 </_ChildComponent>
-
+</CascadingValue>
 <p>@messageText</p>
 
 
 @code {
+
+    private string MessageForGrandChildTemp="This message is passed from Parent Component to Grand Child";
     public string messageText = "";
 
     private void ShowMessage()
