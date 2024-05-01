@@ -2,15 +2,18 @@
 @page "/learnrouting/{Param1:int}/{Param2}"
 @page "/learnrouting/{Param1:int}"
 @page "/learnBlazor/learnrouting"
+@page "/learnrouting/catch-all/{*PageParameters}"
 
 <h3>LearnRouting</h3>
 
 <p>Param1: @Param1</p>
 <p>Param2: @Param2</p>
-
+<p>Page Parameters : @PageParameters</p>
 @code {
     [Parameter]
     public int Param1 { get; set; }
     [Parameter]
     public string Param2 { get; set; } = "";
+    [Parameter]
+    public string PageParameters { get; set; } = "";
 }
