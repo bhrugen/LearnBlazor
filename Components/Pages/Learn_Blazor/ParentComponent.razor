@@ -2,7 +2,9 @@
 
 <h3>ParentComponent</h3>
 
-<_ChildComponent OnButtonClick="ShowMessage" Title="This title is passed as a parameter from Parent Component">
+<_ChildComponent OnButtonClick="ShowMessage" 
+    Title="This title is passed as a parameter from Parent Component"
+    MessageForGrandChild="This message is passed from Parent Component to Grand Child">
     <ChildSomeContent>Some Text between the Tags from Parent Component!!</ChildSomeContent>
     <ChildContent>
         <p>Some Text inside the ChildContent from Parent Component!!</p>
@@ -13,9 +15,6 @@
 
 <p>@messageText</p>
 
-<_ChildComponent Title="This title is passed as a parameter from Parent Component">
-   
-</_ChildComponent>
 
 @code {
     public string messageText = "";
