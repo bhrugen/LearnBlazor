@@ -13,7 +13,9 @@
 <p>Param2: @Param2</p>
 <p>Page Parameters : @PageParameters</p>
 
-<a href="learnRouting?Param1=Learn&Param2=Blazor" class="btn btn-primary">Navigate to query parameter</a>
+@* <a href="learnRouting?Param1=Learn&Param2=Blazor" class="btn btn-primary">Navigate to query parameter</a> *@
+
+<button @onclick="NavigateToQueryParam" class="btn btn-primary">Navigate to query parameter</button>
 <button class="btn btn-success" @onclick="LoadParameters">Load Parameters</button>
 <br />
 
@@ -39,5 +41,12 @@
         var query = Microsoft.AspNetCore.WebUtilities.QueryHelpers.ParseQuery(uri.Query);
         Param1 = query["Param1"];
         Param2 = query["Param2"];
+        //_NavigationManager.Refresh(forceReload:true);
+    }
+
+    private void NavigateToQueryParam()
+    {
+        //some calculations
+        _NavigationManager.NavigateTo("learnRouting?Param1=Learn&Param2=Blazor");
     }
 }
