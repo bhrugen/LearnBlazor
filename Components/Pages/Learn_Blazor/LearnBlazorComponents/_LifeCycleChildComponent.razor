@@ -11,8 +11,15 @@
 @code {
     List<string> EventType = new List<string>();
 
+    [Parameter]
+    public int CountValue { get; set; }
+
     protected override void OnInitialized()
     {
-        EventType.Add("OnInitialized- CHILD is called");
+        EventType.Add("OnInitialized - CHILD is called");
+    }
+    protected override void OnParametersSet()
+    {
+        EventType.Add("OnParametersSet - CHILD is called");
     }
 }
