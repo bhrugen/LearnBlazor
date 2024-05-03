@@ -6,15 +6,30 @@
         <hr />
     </div>
     <div class="mx-2 px-2">
-        <EditForm FormName="ProductCreate" Model="Product">
+        <EditForm FormName="ProductCreate" Model="Product" OnSubmit="HandleProductCreate">
             <div class="form-group py-2">
                 Product Name
                 <InputText class="form-control" @bind-Value="@Product.Name" />
             </div>
+            <button type="submit" class="btn btn-primary my-3" style="width:200px;">
+                Create Product
+            </button>
+            <p class="text-success">@(IsProcessing == true ? "Processing..." : "")</p>
         </EditForm>
     </div>
 </div>
 
 @code {
     public Product Product { get; set; } = new Product();
+    private bool IsProcessing = false;
+
+    private async Task HandleProductCreate()
+    {
+        IsProcessing = true;
+
+        await Task.Delay(3000);
+
+        IsProcessing=false;
+    }
+
 }
