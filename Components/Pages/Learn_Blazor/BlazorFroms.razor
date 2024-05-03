@@ -44,18 +44,37 @@
             <p class="text-success">@(IsProcessing == true ? "Processing..." : "")</p>
         </EditForm>
     </div>
+
+    @if(createdProduct is not null)
+    {
+        <div class="mx-2 pt-4">
+            <hr />
+            <h2 class="text-success ">Product Created</h2>
+            <div class="px-4">
+                Name : @createdProduct.Name <br />
+                Price : @createdProduct.Price <br />
+                Category : @createdProduct.Category <br />
+                IsActive : @createdProduct.IsActive <br />
+                Available After : @createdProduct.AvailableAfter <br />
+            </div>
+        </div>
+    }
 </div>
 
 @code {
     public Product Product { get; set; } = new Product() {};
+
+    private Product? createdProduct { get; set; }
+
     private bool IsProcessing = false;
 
     private async Task HandleProductCreate()
     {
         IsProcessing = true;
-
+        createdProduct = null;
         await Task.Delay(3000);
-
+        createdProduct = Product;
+        Product = new();
         IsProcessing=false;
     }
 
