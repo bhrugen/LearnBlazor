@@ -6,10 +6,19 @@
         <hr />
     </div>
     <div class="mx-2 px-2">
-        <EditForm FormName="ProductCreate" Model="Product" OnSubmit="HandleProductCreate">
+        <EditForm FormName="ProductCreate" Model="Product" OnValidSubmit="HandleProductCreate">
+            <DataAnnotationsValidator />
+            @* <ValidationSummary/> *@
             <div class="form-group py-2">
                 Product Name
                 <InputText class="form-control" @bind-Value="@Product.Name" />
+                <ValidationMessage For="@(() => Product.Name)" />
+            </div>
+            <div class="form-group py-2">
+                Price
+                <InputNumber class="form-control" @bind-Value="@Product.Price" />
+                <ValidationMessage For="@(() => Product.Price)" />
+
             </div>
             <button type="submit" class="btn btn-primary my-3" style="width:200px;">
                 Create Product
@@ -31,5 +40,7 @@
 
         IsProcessing=false;
     }
+
+   
 
 }
