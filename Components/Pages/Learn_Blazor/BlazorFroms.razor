@@ -1,7 +1,20 @@
 ﻿@page "/blazor-forms"
 
-<h3>BlazorFroms</h3>
+<div class="col-12 offset-md-2 col-md-8 border">
+    <div class="text-center pt-4">
+        <h2 class="text-success">Product Form</h2>
+        <hr />
+    </div>
+    <div class="mx-2 px-2">
+        <EditForm FormName="ProductCreate" Model="Product">
+            <div class="form-group py-2">
+                Product Name
+                <InputText class="form-control" @bind-Value="@Product.Name" />
+            </div>
+        </EditForm>
+    </div>
+</div>
 
 @code {
-
+    public Product Product { get; set; } = new Product();
 }
