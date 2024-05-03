@@ -43,6 +43,8 @@
             </button>
             <p class="text-success">@(IsProcessing == true ? "Processing..." : "")</p>
         </EditForm>
+       @*  <EditForm FormName="ProductCreateTemp" Model="ProductTemp" OnValidSubmit="HandleProductCreateTemp">
+        </EditForm> *@
     </div>
 
     @if(createdProduct is not null)
@@ -62,7 +64,11 @@
 </div>
 
 @code {
+    [SupplyParameterFromForm(FormName = "ProductCreate")]
     public Product Product { get; set; } = new Product() {};
+
+    // [SupplyParameterFromForm(FormName = "ProductCreateTemp")]
+    // public Product ProductTemp { get; set; } = new Product() { };
 
     private Product? createdProduct { get; set; }
 
@@ -77,6 +83,16 @@
         Product = new();
         IsProcessing=false;
     }
+
+    // private async Task HandleProductCreateTemp()
+    // {
+    //     IsProcessing = true;
+    //     createdProduct = null;
+    //     await Task.Delay(3000);
+    //     createdProduct = ProductTemp;
+    //     Product = new();
+    //     IsProcessing = false;
+    // }
 
    
 
